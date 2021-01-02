@@ -1,5 +1,7 @@
 # 学习笔记
 
+## 开源项目
+[python守护程序类](https://github.com/serverdensity/python-daemon)
 ## vscode
 
 ### 快捷键
