@@ -3,6 +3,9 @@
 
 import socket
 
+'''
+建立tcp连接后发送执行的文件
+'''
 
 TCP_IP = '127.0.0.1'
 TCP_PORT = 10001

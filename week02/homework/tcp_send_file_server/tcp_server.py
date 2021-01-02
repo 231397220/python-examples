@@ -3,6 +3,11 @@
 
 import socket
 
+'''
+监听tcp端口,并接受文件.
+接收文件内容,将会写到received_file中.
+接收文件完成后,关闭服务器端.
+'''
 
 TCP_IP = '0.0.0.0'
 TCP_PORT = 10001
