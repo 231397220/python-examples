@@ -67,20 +67,27 @@ def create_phone():
 def sendsms(phone_number: int, content: str):
     print('waitting for send...')
     sleep(1)
+    # 获取限制时间端的起点时间
     first_time = redis_client.hget(phone_number, 'time_circle').decode()
+    # 获取限制时间段内的count数量
     now_count = int(redis_client.hget(phone_number, 'count_circle').decode())
     success = True
+    # 如果起点时间为0,则初始化
     if first_time == '0':
         redis_client.hmset(phone_number, {'time_circle': str(
             datetime.now()), 'count_circle': 1})
     else:
+        # 获取时间范围
         time_delta = datetime.now() - datetime.fromisoformat(first_time)
+        # 60秒内发送次数大于5
         if time_delta.seconds <= 60 and now_count >= 5:
             success = False
+        # 大于60秒,重置起点时间
         elif time_delta.seconds > 60:
             redis_client.hmset(phone_number, {'time_circle': str(
                 datetime.now()), 'count_circle': 1})
         else:
+            # 哈希值自增
             redis_client.hincrby(phone_number, 'count_circle')
     if success:
         print(f"发送成功给{phone_number}！内容：{content}")
