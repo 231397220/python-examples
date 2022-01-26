@@ -11,3 +11,11 @@ date:
     define_retention_days: 10
     whitelist: 
       - nginx-ingress-logs
+      
+      
+# es服务器链接信息
+es_host: 192.168.1.1:9200
+es_protocol: http
+es_user: elastic
+es_passwd: fdsjaklvd
+es_passwd1: 1111
