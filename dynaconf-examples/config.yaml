@@ -1,7 +1,7 @@
 # index模式配置：设置索引名和保留时间，到期后删除索引。
 index:
-  - fluent-istio-ingress: "1,m"
-  - logstash-idaas-debug: "60,d"
+  fluent-istio-ingress: "1,m"
+  logstash-idaas-debug: "60,d"
 
 # 选择模式，包含index模式：根据配置文件中的index信息进行生命周期管理。date模式：根据配置文件中的day信息进行生命周期管理。
 mode: index
